@@ -22,15 +22,15 @@ export default {
   name: "Post",
   props: {
     author: {
-      avatar:String,
-      firstname:String,
-      lastname:String
+      avatar: String,
+      firstname: String,
+      lastname: String
     },
     createTime: String,
     likes: String,
     media: {
-      type:String,
-      url:String
+      type: Object,
+      required: false
     },
     text: String
   },
@@ -39,11 +39,6 @@ export default {
       return this.author.firstname + " " + this.author.lastname
     }
   }
-  ,
-  created() {
-    console.log(this.author, this.createTime, this.likes, this.media, this.text)
-  }
-
 }
 </script>
 
