@@ -2,16 +2,16 @@
   <v-container>
     <v-img :src="author.avatar" alt="Post author"></v-img>
     <p>{{ fullName }}</p>
-    <p>{{ this.createTime }}</p>
+    <p>{{ createTime }}</p>
 
     <div v-if="media !== null">
       <v-img class="shrink mr-2" v-if="media.type === 'image'" :src="media.url"></v-img>
       <!-- TODO video     -->
     </div>
-    <p :v-if="text !== null">{{ this.text }}</p>
+    <p :v-if="text !== null">{{ text }}</p>
     <v-btn>
       <v-icon>mdi-thumb-up</v-icon>
-      {{ this.likes }}
+      {{ likes }}
     </v-btn>
   </v-container>
 </template>
