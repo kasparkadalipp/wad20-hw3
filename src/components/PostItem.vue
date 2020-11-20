@@ -1,17 +1,17 @@
 <template>
   <v-container>
-    <v-img :src="post.author.avatar" alt="Post author"></v-img>
-    <p>{{fullName}}</p>
-    <p>{{ this.post.createTime }}</p>
+    <v-img :src="author.avatar" alt="Post author"></v-img>
+    <p>{{ fullName }}</p>
+    <p>{{ this.createTime }}</p>
 
-    <div v-if="post.media !== null">
-      <v-img class="shrink mr-2" v-if="post.media.type === 'image'" :src="post.media.url"></v-img>
+    <div v-if="media !== null">
+      <v-img class="shrink mr-2" v-if="media.type === 'image'" :src="media.url"></v-img>
       <!-- TODO video     -->
     </div>
-    <p :v-if="post.text !== null">{{ this.post.text }}</p>
+    <p :v-if="text !== null">{{ this.text }}</p>
     <v-btn>
       <v-icon>mdi-thumb-up</v-icon>
-      {{ this.post.likes }}
+      {{ this.likes }}
     </v-btn>
   </v-container>
 </template>
@@ -20,11 +20,28 @@
 
 export default {
   name: "Post",
-  props: ["post"],
-  computed:{
-    fullName: function (){
-      return this.post.author.firstname + " " + this.post.author.lastname
+  props: {
+    author: {
+      avatar:String,
+      firstname:String,
+      lastname:String
+    },
+    createTime: String,
+    likes: String,
+    media: {
+      type:String,
+      url:String
+    },
+    text: String
+  },
+  computed: {
+    fullName: function () {
+      return this.author.firstname + " " + this.author.lastname
     }
+  }
+  ,
+  created() {
+    console.log(this.author, this.createTime, this.likes, this.media, this.text)
   }
 
 }
