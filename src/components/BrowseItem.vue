@@ -5,7 +5,8 @@
     </div>
     <p>{{ fullName }}</p>
     <div class="browse-actions">
-      <button @click="toggleFollowed(id)" type="button" name="like" class="follow-button">Follow</button>
+      <button @click="toggleFollowed(id)" v-if="followed" class="followed">Followed</button>
+      <button @click="toggleFollowed(id)" v-else class="follow">Follow</button>
     </div>
   </div>
 </template>
@@ -27,9 +28,11 @@ export default {
       return this.firstname + " " + this.lastname
     }
   },
-  methods: mapMutations([
-    'toggleFollowed'
-  ]),
+  methods: {
+    ...mapMutations([
+      'toggleFollowed'
+    ]),
+  },
 }
 </script>
 
@@ -71,13 +74,12 @@ export default {
   margin-right: auto;
 }
 
-.follow-button {
+.follow {
   background-color: #82008f;
   color: white;
-
 }
 
-.follow-button.followed {
+.followed {
   background-color: #fefefe;
   color: #82008f;
   border: 1px #82008f solid;
