@@ -15,14 +15,13 @@
       />
     </div>
 
-    <input v-model="message" placeholder="edit me">
+    <input v-model="searchInput" placeholder="edit me">
 
     <button>
       Search
     </button>
 
     <v-menu
-        v-model="showMenu"
         absolute
         offset-y
         style="max-width: 200px"
@@ -30,7 +29,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-card
             class="portrait"
-            img=user.avatar
+            :img="user.avatar"
             height="40"
             width="40"
             v-bind="attrs"
@@ -40,7 +39,7 @@
 
       <v-list>
         <v-list-item
-            v-for="(item, index) in items"
+            v-for="(item, index) in dropdownMenu"
             :key="index"
         >
           <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -53,23 +52,31 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   name: "TheHeader",
   data: () => ({
-    user: null,
-    items: [
-      { title: this.user.firstname + " " + this.user.lastname },
-      { title: this.user.email },
-      { title: "Browse" },
-      { title: "Log out"}
-    ]
+    searchInput:"",
+    user: {
+      firstname: "John",
+      lastname: "Doe",
+      email: "john.doe@example.com",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+    }
   }),
+  computed: {
+    dropdownMenu() {
+      const user = this.$store.getters.userProfile;
+      return [
+        {title: user.firstname + " " + user.lastname},
+        {title: user.email},
+        {title: "Browse"},
+        {title: "Log out"}
+      ]
+    }
+  },
   mounted() {
-    axios
-        .get('https://private-anon-5c2a2318a7-wad20postit.apiary-mock.com/users/1')
-        .then(response => (this.user = response.data))
+    this.$store.dispatch("loadUserProfile");
   }
 }
 </script>
@@ -80,6 +87,7 @@ img {
   width: 40px;
   height: 40px;
 }
+
 button {
   color: blue;
 }
