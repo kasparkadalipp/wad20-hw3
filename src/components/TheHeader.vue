@@ -21,9 +21,33 @@
       Search
     </button>
 
-    <div>
-      <img @click="toggleDiv" :src= user.avatar>
-    </div>
+    <v-menu
+        v-model="showMenu"
+        absolute
+        offset-y
+        style="max-width: 200px"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-card
+            class="portrait"
+            img=user.avatar
+            height="40"
+            width="40"
+            v-bind="attrs"
+            v-on="on"
+        ></v-card>
+      </template>
+
+      <v-list>
+        <v-list-item
+            v-for="(item, index) in items"
+            :key="index"
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
 
   </v-app-bar>
 </template>
@@ -35,17 +59,17 @@ export default {
   name: "TheHeader",
   data: () => ({
     user: null,
-    showDropdown: false
+    items: [
+      { title: this.user.firstname + " " + this.user.lastname },
+      { title: this.user.email },
+      { title: "Browse" },
+      { title: "Log out"}
+    ]
   }),
   mounted() {
     axios
         .get('https://private-anon-5c2a2318a7-wad20postit.apiary-mock.com/users/1')
         .then(response => (this.user = response.data))
-  },
-  methods: {
-    toggleDiv () {
-      this.showDropdown = !this.showDropdown
-    }
   }
 }
 </script>
