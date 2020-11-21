@@ -42,7 +42,17 @@ export default {
 </script>
 
 <style scoped>
+input {
+  box-sizing: border-box;
+  height: 30px;
+  width: 80%;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+}
+
 .login-page {
+  background-color: #0277bd;
   width: 100%;
   height: 100%;
   display: flex;
