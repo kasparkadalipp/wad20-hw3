@@ -52,29 +52,23 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 
 export default {
   name: "TheHeader",
   data: () => ({
-    searchInput:"",
-    user: {
-      firstname: "John",
-      lastname: "Doe",
-      email: "john.doe@example.com",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-    }
+    searchInput: "",
   }),
-  computed: {
-    dropdownMenu() {
-      const user = this.$store.getters.userProfile;
-      return [
-        {title: user.firstname + " " + user.lastname},
-        {title: user.email},
-        {title: "Browse"},
-        {title: "Log out"}
-      ]
-    }
-  },
+  computed: mapState({
+    user: state => state.userProfile,
+    dropdownMenu: state => [
+      {title: state.userProfile.firstname + " " + state.userProfile.lastname},
+      {title: state.userProfile.email},
+      {title: "Browse"},
+      {title: "Log out"}
+    ]
+
+  }),
   mounted() {
     this.$store.dispatch("loadUserProfile");
   }
