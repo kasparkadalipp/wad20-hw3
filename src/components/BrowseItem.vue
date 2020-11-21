@@ -16,7 +16,8 @@ export default {
   props: {
     firstname: String,
     lastname: String,
-    avatar: String
+    avatar: String,
+    followed:Boolean
   },
   computed: {
     fullName: function () {
