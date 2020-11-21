@@ -5,25 +5,31 @@
     </div>
     <p>{{ fullName }}</p>
     <div class="browse-actions">
-      <button type="button" name="like" class="follow-button">Follow</button>
+      <button @click="toggleFollowed(id)" type="button" name="like" class="follow-button">Follow</button>
     </div>
   </div>
 </template>
 
 <script>
+import {mapMutations} from 'vuex';
+
 export default {
   name: "BrowseItem",
   props: {
+    id: Number,
     firstname: String,
     lastname: String,
     avatar: String,
-    followed:Boolean
+    followed: Boolean
   },
   computed: {
     fullName: function () {
       return this.firstname + " " + this.lastname
     }
-  }
+  },
+  methods: mapMutations([
+    'toggleFollowed'
+  ]),
 }
 </script>
 
