@@ -85,4 +85,12 @@ export default {
   border: 1px #82008f solid;
   border-radius: 4px;
 }
+
+button {
+  padding: 8px 16px;
+  margin: 4px 0;
+  border: none;
+  border-radius: 4px;
+}
+
 </style>

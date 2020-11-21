@@ -46,9 +46,13 @@ main {
 }
 
 .profile-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
+  display: inline-flex;
+  flex-direction: column;
+  width: 45%;
+  margin: 10px;
+  border-style: groove;
+  border-width: 1.5px;
+  border-radius: 5px;
 }
 
 </style>
