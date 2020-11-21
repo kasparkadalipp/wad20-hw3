@@ -6,13 +6,15 @@ Vue.use(Vuex);
 
 const state = {
     posts: [],
-    userProfile: {}
+    userProfile: {},
+    profiles:[]
 
 }
 
 const getters = {
     posts: (state) => state.posts,
-    userProfile: (state) => state.userProfile
+    userProfile: (state) => state.userProfile,
+    profiles: (state) => state.profiles
 }
 
 const actions = {
@@ -26,6 +28,11 @@ const actions = {
             .get('https://private-anon-5c2a2318a7-wad20postit.apiary-mock.com/users/1')
             .then(response => commit('setUserProfile', response.data))
     },
+    loadProfiles({commit}) {
+        axios
+            .get('https://private-anon-be803d4906-wad20postit.apiary-mock.com/profiles')
+            .then(response => commit('setProfiles', response.data))
+    },
 }
 
 const mutations = {
@@ -35,7 +42,9 @@ const mutations = {
     setUserProfile(state, user) {
         state.userProfile = user
     },
-
+    setProfiles(state, user) {
+        state.userProfile = user
+    },
 }
 
 export default new Vuex.Store({
