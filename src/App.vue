@@ -1,15 +1,16 @@
 <template>
-  <v-app>
-    <PostsPage/>
+  <v-app style="background: #0277bd"
+  >
+    <BrowsePage/>
   </v-app>
 </template>
 
 <script>
-import PostsPage from "@/components/PostsPage";
+import BrowsePage from "@/components/BrowsePage";
 
 export default {
   name: 'App',
-  components: {PostsPage},
+  components: {BrowsePage},
 
   data: () => ({
     //
