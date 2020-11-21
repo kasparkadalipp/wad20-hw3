@@ -1,25 +1,26 @@
 <template>
-  <v-container>
-    <v-img :src="author.avatar" alt="Post author"></v-img>
-    <p>{{ fullName }}</p>
-    <p>{{ createTime }}</p>
-
-    <div v-if="media !== null">
-      <v-img class="shrink mr-2" v-if="media.type === 'image'" :src="media.url"></v-img>
-      <!-- TODO video     -->
+  <div class="post">
+    <div class="post-author">
+      <PostAuthor v-bind="author"></PostAuthor>
+      <small>{{ createTime }}</small>
     </div>
+    <PostMedia v-if="media !== null" v-bind="media"></PostMedia>
     <p :v-if="text !== null">{{ text }}</p>
     <v-btn>
       <v-icon>mdi-thumb-up</v-icon>
       {{ likes }}
     </v-btn>
-  </v-container>
+  </div>
 </template>
 
 <script>
 
+import PostMedia from "@/components/PostMedia";
+import PostAuthor from "@/components/PostAuthor";
+
 export default {
   name: "Post",
+  components: {PostAuthor, PostMedia},
   props: {
     author: {
       avatar: String,
@@ -34,14 +35,27 @@ export default {
     },
     text: String
   },
-  computed: {
-    fullName: function () {
-      return this.author.firstname + " " + this.author.lastname
-    }
-  }
+
 }
 </script>
 
 <style scoped>
+.post {
+  width: 80%;
+  min-width: 450px;
+  margin: 15px auto;
+  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+  border-radius: 5px;
+}
 
+.post-author {
+  padding: 10px;
+}
+
+
+.post-author-info + small {
+  float: right;
+  color: grey;
+  padding: 10px;
+}
 </style>
