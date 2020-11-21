@@ -6,7 +6,7 @@
     </div>
     <PostMedia v-if="media !== null" v-bind="media"></PostMedia>
     <p :v-if="text !== null">{{ text }}</p>
-    <v-btn>
+    <v-btn @click="toggleLiked(id)">
       <v-icon>mdi-thumb-up</v-icon>
       {{ likes }}
     </v-btn>
@@ -17,11 +17,13 @@
 
 import PostMedia from "@/components/PostMedia";
 import PostAuthor from "@/components/PostAuthor";
+import {mapMutations} from "vuex";
 
 export default {
   name: "Post",
   components: {PostAuthor, PostMedia},
   props: {
+    id:Number,
     author: {
       avatar: String,
       firstname: String,
@@ -33,8 +35,12 @@ export default {
       type: Object,
       required: false
     },
-    text: String
+    text: String,
+    liked: Boolean
   },
+  methods: mapMutations([
+    'toggleLiked'
+  ]),
 
 }
 </script>
