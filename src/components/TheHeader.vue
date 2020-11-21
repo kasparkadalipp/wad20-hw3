@@ -1,8 +1,6 @@
 <template>
-  <v-app-bar
-      app
+  <v-app-bar class="header"
       color="white"
-      dark
   >
     <div class="d-flex align-center">
       <v-img
@@ -15,11 +13,17 @@
       />
     </div>
 
-    <input v-model="searchInput" placeholder="edit me">
+    <div class="searchFields">
 
-    <button>
-      Search
-    </button>
+      <input
+          v-model="searchInput"
+          placeholder="Search..."
+      >
+
+      <button>
+        Search
+      </button>
+    </div>
 
     <v-menu
         absolute
@@ -82,7 +86,30 @@ img {
 }
 
 button {
-  color: blue;
+  padding: 8px 16px;
+  margin: 4px 0;
+  color: #ffffff;
+  background-color: #01579b;
+  border: none;
+  border-radius: 4px;
 }
+
+button:hover {
+  box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.searchFields {
+  padding: 10px;
+  display: flex;
+ }
 
 </style>
