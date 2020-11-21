@@ -23,7 +23,7 @@ export default {
     profiles: state => state.profiles
   }),
   mounted() {
-    this.$store.dispatch("loadPosts");
+    this.$store.dispatch("loadProfiles");
   }
 }
 </script>

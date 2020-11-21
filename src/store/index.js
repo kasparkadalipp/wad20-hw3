@@ -38,8 +38,8 @@ const mutations = {
     setUserProfile(state, user) {
         state.user = user
     },
-    setProfiles(state, user) {
-        state.user = user
+    setProfiles(state, profiles) {
+        state.profiles = profiles
     },
 }
 
