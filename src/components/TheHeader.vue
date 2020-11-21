@@ -34,8 +34,18 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-name: "TheHeader"
+  name: "TheHeader",
+  data: () => ({
+    user: null
+  }),
+  mounted() {
+    axios
+        .get('https://private-anon-5c2a2318a7-wad20postit.apiary-mock.com/users/1')
+        .then(response => (this.user = response.data))
+  }
 }
 </script>
 
