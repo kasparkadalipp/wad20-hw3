@@ -60,14 +60,13 @@ export default {
     searchInput: "",
   }),
   computed: mapState({
-    user: state => state.userProfile,
+    user: state => state.user,
     dropdownMenu: state => [
-      {title: state.userProfile.firstname + " " + state.userProfile.lastname},
-      {title: state.userProfile.email},
+      {title: state.user.firstname + " " + state.user.lastname},
+      {title: state.user.email},
       {title: "Browse"},
       {title: "Log out"}
     ]
-
   }),
   mounted() {
     this.$store.dispatch("loadUserProfile");
