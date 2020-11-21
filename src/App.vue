@@ -1,19 +1,15 @@
 <template>
   <v-app>
-    <Header/>
-    <v-main>
-      <Posts/>
-    </v-main>
+    <PostsPage/>
   </v-app>
 </template>
 
 <script>
-import Posts from "@/components/PostsView";
-import Header from "@/components/TheHeader";
+import PostsPage from "@/components/PostsPage";
 
 export default {
   name: 'App',
-  components: {Header, Posts},
+  components: {PostsPage},
 
   data: () => ({
     //
