@@ -11,9 +11,6 @@ const state = {
 }
 
 const getters = {
-    posts: state => state.posts,
-    userProfile: state => state.user,
-    profiles: state => state.profiles
 }
 
 const actions = {

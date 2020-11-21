@@ -8,19 +8,17 @@
 <script>
 import Post from "@/components/PostItem";
 import TheHeader from "@/components/TheHeader";
+import {mapState} from 'vuex';
 
 export default {
   name: "PostsPage",
   components: {TheHeader, Post},
-  computed: {
-    posts() {
-      return this.$store.getters.posts
-    }
-  },
+  computed: mapState({
+    posts: state => state.posts
+  }),
   mounted() {
     this.$store.dispatch("loadPosts");
   }
-
 }
 </script>
 
