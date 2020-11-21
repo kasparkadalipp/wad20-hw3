@@ -42,6 +42,11 @@ export default {
 </script>
 
 <style scoped>
+
+a {
+  color: #40c4ff;
+}
+
 input {
   box-sizing: border-box;
   height: 30px;
@@ -52,7 +57,6 @@ input {
 }
 
 .login-page {
-  background-color: #0277bd;
   width: 100%;
   height: 100%;
   display: flex;
@@ -61,6 +65,7 @@ input {
 }
 
 #login-container {
+  background-image: url(../assets/logobackground.png);
   background-size: 20% auto;
   background-repeat: no-repeat;
   background-position: 15px 15px;
@@ -71,8 +76,31 @@ input {
   text-align: center;
 }
 
+#login-container > div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#login-container div > h3 {
+  margin: 20px;
+}
+
 #login-container form div > input {
+  padding: 10px 16px;
+  margin: 4px 0;
+}
+
+button {
   padding: 8px 16px;
   margin: 4px 0;
+  color: #ffffff;
+  background-color: #01579b;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
+  cursor: pointer;
 }
 </style>
