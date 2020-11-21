@@ -27,7 +27,7 @@ const actions = {
     loadProfiles({commit}) {
         axios
             .get('https://private-anon-be803d4906-wad20postit.apiary-mock.com/profiles')
-            .then(response => commit('setProfiles', response.data))
+            .then(response => commit('setProfiles', response.data.map(profile => Object.assign(profile, {followed:false}))))
     },
 }
 
