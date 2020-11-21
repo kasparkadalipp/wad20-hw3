@@ -5,16 +5,15 @@ import Vue from 'vue'
 Vue.use(Vuex);
 
 const state = {
+    user: {},
     posts: [],
-    userProfile: {},
     profiles:[]
-
 }
 
 const getters = {
-    posts: (state) => state.posts,
-    userProfile: (state) => state.userProfile,
-    profiles: (state) => state.profiles
+    posts: state => state.posts,
+    userProfile: state => state.user,
+    profiles: state => state.profiles
 }
 
 const actions = {
@@ -40,10 +39,10 @@ const mutations = {
         state.posts = posts
     },
     setUserProfile(state, user) {
-        state.userProfile = user
+        state.user = user
     },
     setProfiles(state, user) {
-        state.userProfile = user
+        state.user = user
     },
 }
 
