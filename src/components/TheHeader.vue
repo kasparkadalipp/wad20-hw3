@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
       app
-      color="primary"
+      color="white"
       dark
   >
     <div class="d-flex align-center">
@@ -15,21 +15,16 @@
       />
     </div>
 
-    <v-input
-        hint="I am hint"
-        persistent-hint
-    >
-      Input
-    </v-input>
+    <input v-model="message" placeholder="edit me">
 
-    <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-    >
-      <span class="mr-2">Latest Release</span>
-      <v-icon>mdi-open-in-new</v-icon>
-    </v-btn>
+    <button>
+      Search
+    </button>
+
+    <div>
+      <img @click="toggleDiv" :src= user.avatar>
+    </div>
+
   </v-app-bar>
 </template>
 
@@ -39,16 +34,30 @@ import axios from "axios";
 export default {
   name: "TheHeader",
   data: () => ({
-    user: null
+    user: null,
+    showDropdown: false
   }),
   mounted() {
     axios
         .get('https://private-anon-5c2a2318a7-wad20postit.apiary-mock.com/users/1')
         .then(response => (this.user = response.data))
+  },
+  methods: {
+    toggleDiv () {
+      this.showDropdown = !this.showDropdown
+    }
   }
 }
 </script>
 
 <style scoped>
+img {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+}
+button {
+  color: blue;
+}
 
 </style>
