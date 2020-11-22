@@ -1,15 +1,19 @@
 <template>
   <v-app style="background: #0277bd">
+    <TheHeader v-if="$route.fullPath !== '/login'"></TheHeader>
     <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-  export default {
-    name: 'App',
-    created() {
-      this.$router.push("/posts");
-      this.$store.dispatch("loadData");
-    }
-  };
+import TheHeader from "@/components/TheHeader";
+
+export default {
+  name: 'App',
+  components: {TheHeader},
+  created() {
+    this.$router.push("/posts");
+    this.$store.dispatch("loadData");
+  }
+};
 </script>
