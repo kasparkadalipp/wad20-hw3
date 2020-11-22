@@ -9,9 +9,7 @@
     name: 'App',
     created() {
       this.$router.push("/posts");
-      this.$store.dispatch("loadProfiles");
-      this.$store.dispatch("loadPosts");
-      this.$store.dispatch("loadUserProfile");
+      this.$store.dispatch("loadData");
     }
   };
 </script>
