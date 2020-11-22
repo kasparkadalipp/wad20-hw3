@@ -11,9 +11,9 @@ import {mapState} from 'vuex';
 export default {
   name: "PostsPage",
   components: {Post},
-  computed: mapState({
-    posts: state => state.posts
-  })
+  computed: mapState([
+    'posts'
+  ])
 }
 </script>
 
