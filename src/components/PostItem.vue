@@ -27,7 +27,7 @@ export default {
   name: "Post",
   components: {PostAuthor, PostMedia},
   props: {
-    id:Number,
+    id: Number,
     author: {
       avatar: String,
       firstname: String,
@@ -50,6 +50,11 @@ export default {
 </script>
 
 <style scoped>
+p {
+  font-weight: bold;
+  margin: 10px;
+}
+
 .post {
   background-color: white;
   width: 80%;
@@ -60,9 +65,10 @@ export default {
 }
 
 .post-author {
+  width: 100%;
+  height: 50px;
   padding: 10px;
 }
-
 
 .post-author-info + small {
   float: right;
