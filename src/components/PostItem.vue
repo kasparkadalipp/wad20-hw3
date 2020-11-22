@@ -18,7 +18,6 @@
 </template>
 
 <script>
-
 import PostMedia from "@/components/PostMedia";
 import PostAuthor from "@/components/PostAuthor";
 import {mapMutations} from "vuex";
