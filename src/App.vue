@@ -14,7 +14,10 @@ export default {
   name: 'App',
   components: {TheHeader},
   created() {
-    this.$router.push("/posts")
+    this.$router.push("/posts");
+    this.$store.dispatch("loadProfiles");
+    this.$store.dispatch("loadPosts");
+    this.$store.dispatch("loadUserProfile");
   }
 };
 </script>

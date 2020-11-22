@@ -17,10 +17,7 @@ export default {
   components: {TheHeader, Post},
   computed: mapState({
     posts: state => state.posts
-  }),
-  mounted() {
-    this.$store.dispatch("loadPosts");
-  }
+  })
 }
 </script>
 

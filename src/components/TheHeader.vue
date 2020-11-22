@@ -43,9 +43,6 @@ export default {
       {title: "Log out"}
     ]
   }),
-  mounted() {
-    this.$store.dispatch("loadUserProfile");
-  },
   methods: {
     toggle() {
       this.showMenu = !this.showMenu;

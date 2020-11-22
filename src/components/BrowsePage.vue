@@ -22,10 +22,7 @@ export default {
   components: {BrowseItem},
   computed: mapState({
     profiles: state => state.profiles
-  }),
-  mounted() {
-    this.$store.dispatch("loadProfiles");
-  }
+  })
 }
 </script>
 
