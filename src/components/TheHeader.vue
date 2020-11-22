@@ -5,18 +5,19 @@
         <img src="/images/logo.png" alt="postIt">
       </div>
       <div class="search-container">
-        <input type="text" name="search"><button type="button">Search</button>
+        <input type="text" name="search">
+        <button type="button">Search</button>
       </div>
       <div class="avatar-container">
         <img :src="user.avatar" class="avatar" alt="Me" @click="toggle">
-        <div class = "dropdown-menu" v-if="showMenu">
+        <div class="dropdown-menu" v-if="showMenu">
           <ul>
             <li>
               <p>{{ user.firstname + " " + user.lastname }}</p>
               <p>{{ user.email }}</p>
             </li>
-            <li><a href="browse.html">Browse</a></li>
-            <li><a href="login.html">Log Out</a></li>
+            <li><router-link to="/browse">Browse</router-link></li>
+            <li><router-link to="/login">Log Out</router-link></li>
           </ul>
         </div>
       </div>
@@ -31,7 +32,7 @@ export default {
   name: "TheHeader",
   data: () => ({
     searchInput: "",
-    showMenu:false,
+    showMenu: false,
   }),
   computed: mapState({
     user: state => state.user,
@@ -45,8 +46,8 @@ export default {
   mounted() {
     this.$store.dispatch("loadUserProfile");
   },
-  methods:{
-    toggle(){
+  methods: {
+    toggle() {
       this.showMenu = !this.showMenu;
     }
   }
@@ -139,4 +140,15 @@ nav div.avatar-container {
   text-align: right;
 }
 
+.dropdown-menu {
+  position: absolute;
+  background-color: #f9f9f9;
+  right: 5px;
+  width: auto;
+  height: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  text-align: left;
+}
 </style>
