@@ -29,4 +29,31 @@ img {
   object-fit: cover;
   object-position: top;
 }
+.post .post-author .post-author-info {
+  float: left;
+  position: relative;
+  width: 50%;
+}
+
+.post .post-author .post-author-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: top;
+  margin: 5px;
+}
+
+.post .post-author .post-author-info small {
+  position: absolute;
+  top: 10px;
+  left: 35px;
+}
+
+.post .post-author .post-author-info + small {
+  float: right;
+  color: grey;
+  padding: 10px;
+}
+
 </style>
