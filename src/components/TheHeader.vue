@@ -16,8 +16,12 @@
               <p>{{ user.firstname + " " + user.lastname }}</p>
               <p>{{ user.email }}</p>
             </li>
-            <li><router-link to="/browse">Browse</router-link></li>
-            <li><router-link to="/login">Log Out</router-link></li>
+            <li>
+              <router-link to="/browse">Browse</router-link>
+            </li>
+            <li>
+              <router-link to="/login">Log Out</router-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -88,11 +92,10 @@ nav {
   height: 50px;
 }
 
-nav div {
+div {
   height: 100%;
   flex-grow: 4;
   padding: 10px;
-
 }
 
 button {
@@ -104,46 +107,47 @@ button {
   border-radius: 4px;
 }
 
-nav div img {
-  height: 100%;
+img {
   width: 30px;
   height: 30px;
   margin-left: 15px;
-  border-radius: 100%;
   object-fit: cover;
   object-position: top center;
 }
 
-nav div.search-container > input {
+.avatar-container img {
+  border-radius: 100%;
+}
+
+input {
   box-sizing: border-box;
   height: 30px;
   width: 80%;
-  margin: 0;
   padding: 5px;
   border: 1px solid #e0e0e0;
 }
 
-nav div.search-container > button {
+button {
   height: 30px;
   width: 20%;
   margin: 0;
-  padding: 5px;
+  padding: 4px 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-nav div.avatar-container {
+.avatar-container {
   margin-right: 15px;
   text-align: right;
 }
 
 .dropdown-menu {
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: white;
   right: 5px;
   width: auto;
   height: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
   text-align: left;
