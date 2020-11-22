@@ -7,8 +7,9 @@
     <PostMedia v-if="media !== null" v-bind="media"></PostMedia>
     <p :v-if="text !== null">{{ text }}</p>
     <v-btn
+        class="ml-2 mb-4"
         @click="toggleLiked(id)"
-        :color="liked ? 'secondary' : 'primary'"
+        :color="liked ? 'primary' : 'secondary'"
     >
       <v-icon>mdi-thumb-up</v-icon>
       {{ likes }}
