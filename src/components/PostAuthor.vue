@@ -1,8 +1,8 @@
 <template>
-  <span class="post-author-info">
+  <div class="post-author-info">
     <img :src="avatar" alt="Post author">
     <small>{{ fullName }}</small>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -28,32 +28,19 @@ img {
   border-radius: 100%;
   object-fit: cover;
   object-position: top;
-}
-.post .post-author .post-author-info {
-  float: left;
-  position: relative;
-  width: 50%;
-}
-
-.post .post-author .post-author-info img {
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  object-fit: cover;
-  object-position: top;
   margin: 5px;
 }
 
-.post .post-author .post-author-info small {
-  position: absolute;
-  top: 10px;
-  left: 35px;
+.post-author-info {
+  float: left;
+  position: relative;
+  width: 80%;
 }
 
-.post .post-author .post-author-info + small {
-  float: right;
-  color: grey;
-  padding: 10px;
+small {
+  position: absolute;
+  top: 10px;
+  left: 40px;
 }
 
 </style>
