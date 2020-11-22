@@ -38,15 +38,9 @@ export default {
     searchInput: "",
     showMenu: false,
   }),
-  computed: mapState({
-    user: state => state.user,
-    dropdownMenu: state => [
-      {title: state.user.firstname + " " + state.user.lastname},
-      {title: state.user.email},
-      {title: "Browse"},
-      {title: "Log out"}
-    ]
-  }),
+  computed: mapState([
+    'user'
+  ]),
   methods: {
     toggle() {
       this.showMenu = !this.showMenu;
