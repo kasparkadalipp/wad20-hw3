@@ -6,7 +6,10 @@
     </div>
     <PostMedia v-if="media !== null" v-bind="media"></PostMedia>
     <p :v-if="text !== null">{{ text }}</p>
-    <v-btn @click="toggleLiked(id)">
+    <v-btn
+        @click="toggleLiked(id)"
+        :color="liked ? 'secondary' : 'primary'"
+    >
       <v-icon>mdi-thumb-up</v-icon>
       {{ likes }}
     </v-btn>
