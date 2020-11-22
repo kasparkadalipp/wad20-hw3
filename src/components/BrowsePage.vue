@@ -20,9 +20,9 @@ import {mapState} from 'vuex';
 export default {
   name: "BrowsePage",
   components: {BrowseItem},
-  computed: mapState({
-    profiles: state => state.profiles
-  })
+  computed: mapState([
+    'profiles'
+  ])
 }
 </script>
 
