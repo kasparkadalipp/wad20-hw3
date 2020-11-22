@@ -4,10 +4,8 @@
       <img :src="avatar" alt="User">
     </div>
     <p>{{ fullName }}</p>
-    <div class="browse-actions">
-      <button @click="toggleFollowed(id)" v-if="followed" class="followed">Followed</button>
-      <button @click="toggleFollowed(id)" v-else class="follow">Follow</button>
-    </div>
+    <button @click="toggleFollowed(id)" v-if="followed" class="followed">Followed</button>
+    <button @click="toggleFollowed(id)" v-else class="follow">Follow</button>
   </div>
 </template>
 
@@ -28,18 +26,15 @@ export default {
       return this.firstname + " " + this.lastname
     }
   },
-  methods: {
-    ...mapMutations([
-      'toggleFollowed'
-    ]),
-  },
+  methods: mapMutations([
+    'toggleFollowed'
+  ]),
+
 }
 </script>
 
 <style scoped>
-
-
-.profile p {
+p {
   text-align: center;
   font-weight: bold;
   font-size: larger;
@@ -54,16 +49,10 @@ export default {
   overflow: hidden;
 }
 
-.mask img {
+img {
   max-width: 100%;
   min-height: 100%;
   object-fit: cover;
-}
-
-.profile button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .follow {
@@ -79,8 +68,9 @@ export default {
 }
 
 button {
+  display: block;
+  margin: 0 auto 4px auto;
   padding: 8px 16px;
-  margin: 4px 0;
   border: none;
   border-radius: 4px;
 }
