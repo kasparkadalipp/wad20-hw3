@@ -2,7 +2,6 @@
   <v-app style="background: #0277bd">
     <router-view></router-view>
   </v-app>
-
 </template>
 
 <script>
