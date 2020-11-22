@@ -27,5 +27,6 @@ main {
   padding-top: 70px;
   margin: 0 auto;
   background-color: white;
+  min-width: 450px;
 }
 </style>
