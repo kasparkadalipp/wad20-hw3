@@ -23,6 +23,9 @@ export default {
 
 <style scoped>
 main {
-  margin-top: 60px;
+  width: 80%;
+  padding-top: 70px;
+  margin: 0 auto;
+  background-color: white;
 }
 </style>
