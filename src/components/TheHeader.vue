@@ -16,8 +16,8 @@
               <p>{{ user.firstname + " " + user.lastname }}</p>
               <p>{{ user.email }}</p>
             </li>
-            <li><a href="browse.html">Browse</a></li>
-            <li><a href="login.html">Log Out</a></li>
+            <li><router-link to="/browse">Browse</router-link></li>
+            <li><router-link to="/login">Log Out</router-link></li>
           </ul>
         </div>
       </div>
