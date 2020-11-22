@@ -38,14 +38,6 @@ export default {
 
 <style scoped>
 
-.profile {
-  display: inline-block;
-  background-color: #fefefe;
-  border-style: groove;
-  border-width: 1px;
-  border-radius: 5px;
-  padding: 2px;
-}
 
 .profile p {
   text-align: center;
