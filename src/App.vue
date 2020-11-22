@@ -1,16 +1,17 @@
 <template>
-  <v-app style="background: #0277bd"
-  >
-    <BrowsePage/>
+  <v-app style="background: #0277bd">
+    <TheHeader v-if="$route.fullPath!='/login'"> </TheHeader>
+    <router-view></router-view>
   </v-app>
+
 </template>
 
 <script>
-import BrowsePage from "@/components/BrowsePage";
 
+import TheHeader from "@/components/TheHeader";
 export default {
   name: 'App',
-  components: {BrowsePage},
+  components: {TheHeader},
 
   data: () => ({
     //

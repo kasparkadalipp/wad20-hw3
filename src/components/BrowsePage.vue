@@ -1,6 +1,6 @@
 <template>
+
   <main>
-    <TheHeader/>
     <BrowseItem
         class="profile-container"
         v-for="profile in profiles"
@@ -12,13 +12,14 @@
 </template>
 
 <script>
-import TheHeader from "@/components/TheHeader";
+
+
 import BrowseItem from "@/components/BrowseItem";
 import {mapState} from 'vuex';
 
 export default {
   name: "BrowsePage",
-  components: {BrowseItem, TheHeader},
+  components: {BrowseItem},
   computed: mapState({
     profiles: state => state.profiles
   }),
