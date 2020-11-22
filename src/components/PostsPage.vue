@@ -1,8 +1,10 @@
 <template>
-  <v-container>
+  <div>
     <TheHeader/>
-    <Post v-for="post in posts" v-bind="post" :key="post.id"></Post>
-  </v-container>
+    <main>
+      <Post v-for="post in posts" v-bind="post" :key="post.id"></Post>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -23,5 +25,7 @@ export default {
 </script>
 
 <style scoped>
-
+main {
+  margin-top: 60px;
+}
 </style>

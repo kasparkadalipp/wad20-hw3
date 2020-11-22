@@ -47,6 +47,7 @@ export default {
 
 <style scoped>
 .post {
+  background-color: white;
   width: 80%;
   min-width: 450px;
   margin: 15px auto;

@@ -1,58 +1,27 @@
 <template>
-  <v-app-bar class="header"
-      color="white"
-  >
-    <div class="d-flex align-center">
-      <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="/images/logo.png"
-          transition="scale-transition"
-          width="40"
-      />
-    </div>
-
-    <div class="searchFields">
-
-      <input
-          v-model="searchInput"
-          placeholder="Search..."
-      >
-
-      <button>
-        Search
-      </button>
-    </div>
-
-    <v-menu
-        absolute
-        offset-y
-        style="max-width: 200px"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-card
-            class="portrait"
-            :img="user.avatar"
-            height="40"
-            width="40"
-            v-bind="attrs"
-            v-on="on"
-        ></v-card>
-      </template>
-
-      <v-list>
-        <v-list-item
-            v-for="(item, index) in dropdownMenu"
-            :key="index"
-        >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-
-
-  </v-app-bar>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <img src="/images/logo.png" alt="postIt">
+      </div>
+      <div class="search-container">
+        <input type="text" name="search"><button type="button">Search</button>
+      </div>
+      <div class="avatar-container">
+        <img :src="user.avatar" class="avatar" alt="Me" @click="toggle">
+        <div class = "dropdown-menu" v-if="showMenu">
+          <ul>
+            <li>
+              <p>{{ user.firstname + " " + user.lastname }}</p>
+              <p>{{ user.email }}</p>
+            </li>
+            <li><a href="browse.html">Browse</a></li>
+            <li><a href="login.html">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -62,6 +31,7 @@ export default {
   name: "TheHeader",
   data: () => ({
     searchInput: "",
+    showMenu:false,
   }),
   computed: mapState({
     user: state => state.user,
@@ -74,15 +44,57 @@ export default {
   }),
   mounted() {
     this.$store.dispatch("loadUserProfile");
+  },
+  methods:{
+    toggle(){
+      this.showMenu = !this.showMenu;
+    }
   }
 }
 </script>
 
 <style scoped>
-img {
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li:nth-child(n+2) {
+  padding-bottom: 4px;
+  padding-top: 2px;
+  border-top: 0.5px solid #d0d0d0;
+}
+
+ul li p {
+  margin: 0;
+  padding-bottom: 4px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  height: 50px;
+}
+
+header:hover {
+  box-shadow: 5px -20px 30px 10px #4d4d4d;
+}
+
+nav {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
+  height: 50px;
+}
+
+nav div {
+  height: 100%;
+  flex-grow: 4;
+  padding: 10px;
+
 }
 
 button {
@@ -94,22 +106,37 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
-  box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
-  cursor: pointer;
+nav div img {
+  height: 100%;
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  top: 0;
+nav div.search-container > input {
+  box-sizing: border-box;
+  height: 30px;
+  width: 80%;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
 }
 
-.searchFields {
-  padding: 10px;
-  display: flex;
- }
+nav div.search-container > button {
+  height: 30px;
+  width: 20%;
+  margin: 0;
+  padding: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+nav div.avatar-container {
+  margin-right: 15px;
+  text-align: right;
+}
 
 </style>
