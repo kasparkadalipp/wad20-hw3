@@ -28,11 +28,6 @@ export default {
 
 <style scoped>
 
-body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
 
 main {
   width: 50%;
