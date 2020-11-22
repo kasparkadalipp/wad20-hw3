@@ -14,7 +14,6 @@
       </div>
       <div>
         <h3>Please Log In</h3>
-        <form action="index.html" method="post">
           <div>
             <input type="text" name="email" placeholder="Email">
           </div>
@@ -22,14 +21,13 @@
             <input type="password" name="password" placeholder="Password">
           </div>
           <div>
-            <button class="button" type="submit" name="login">Log In</button>
+            <button @click="logIn" name="login">Log In</button>
           </div>
           <div>
             <small>
               <a href="#">Forgot password?</a>
             </small>
           </div>
-        </form>
       </div>
     </section>
   </section>
@@ -37,7 +35,12 @@
 
 <script>
 export default {
-  name: "LoginPage"
+  name: "LoginPage",
+  methods:{
+    logIn(){
+      this.$router.push("/posts")
+    }
+  }
 }
 </script>
 
@@ -85,7 +88,7 @@ input {
   margin: 20px;
 }
 
-#login-container form div > input {
+input {
   padding: 10px 16px;
   margin: 4px 0;
 }
