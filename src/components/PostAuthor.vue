@@ -42,5 +42,4 @@ small {
   top: 10px;
   left: 40px;
 }
-
 </style>
