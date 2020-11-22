@@ -1,5 +1,4 @@
 <template>
-
   <main>
     <BrowseItem
         class="profile-container"
@@ -7,13 +6,10 @@
         v-bind="profile"
         :key="profile.id">
     </BrowseItem>
-
   </main>
 </template>
 
 <script>
-
-
 import BrowseItem from "@/components/BrowseItem";
 import {mapState} from 'vuex';
 
@@ -27,8 +23,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 main {
   width: 50%;
   min-width: 450px;
@@ -47,5 +41,4 @@ main {
   border-width: 1.5px;
   border-radius: 5px;
 }
-
 </style>
